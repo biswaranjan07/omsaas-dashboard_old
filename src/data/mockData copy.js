@@ -1424,7 +1424,7 @@ export const mockDataProduct = [
   },
 ];
 
-export const mockDataVendorProduct = [
+/*export const mockDataVendorProduct = [
   {
     vendorId: 1,
     productId: 3,
@@ -1455,9 +1455,9 @@ export const mockDataVendorProduct = [
     buyPrice: 37,
     unit: "Kg",
   },
-];
+];*/
 
-export const mockDataStoreList = [
+/*export const mockDataStoreList = [
   {
     storeId: 1,
     storeName: "Eastern Warehouse",
@@ -1474,10 +1474,9 @@ export const mockDataStoreList = [
     timezone: "IST",
     storeOperationalStatus: "True",
   },
-];
+];*/
 
 export const mockDataStoreDetails = [
-<<<<<<< HEAD
 	{
 	  storeId: 1,
 	  storeName: "Eastern Warehouse",
@@ -1566,7 +1565,7 @@ export const mockDataStoreDetails = [
 	}
 ];
 
-export const mockDataProductList = [
+/*export const mockDataProductList = [
   {
     productId: 1,
     productName: "Small Bananas",
@@ -1581,7 +1580,7 @@ export const mockDataProductList = [
     measurement: "Kg",
     totalInventory: 100
   }
-];
+];*/
 
 export const mockDataProductDetails = [
   {
@@ -1622,72 +1621,31 @@ export const mockDataProductDetails = [
         
       ]
   }
-=======
+];
+
+export const mockDataInventoryDetails = [
   {
+    productId: 1,
     storeId: 1,
-    storeName: "Eastern Warehouse",
-    timezone: "IST",
-    storeStartTime: "09:00",
-    storeEndtime: "21:00",
-    storeOperationalStatus: "True",
-    storeCalendar: {
-      Monday: "True",
-      Tuesday: "True",
-      Wednesday: "True",
-      Thrusday: "True",
-      Friday: "True",
-      Saturday: "True",
-      Sunday: "False",
-    },
-    storeCapacity: {
-      StoreManagerId: 1,
-      StoreManagerName: "Manoj Tiwari",
-      fte: 2,
-    },
-    storeType: {
-      Inflow: {
-        purchaseOrder: "True",
-        stockTransfer: "True",
-      },
-      Outflow: {
-        stockTransfer: "True",
-        salvage: "True",
-        sales: "False",
-      },
-    },
+    inventory: 40,
+    measurement: "Units",
   },
   {
+    productId: 1,
     storeId: 2,
-    storeName: "MJ Road Store",
-    timezone: "IST",
-    storeStartTime: "09:00",
-    storeEndtime: "21:00",
-    storeOperationalStatus: "True",
-    storeCalendar: {
-      Monday: "True",
-      Tuesday: "True",
-      Wednesday: "True",
-      Thrusday: "True",
-      Friday: "True",
-      Saturday: "True",
-      Sunday: "True",
-    },
-    storeCapacity: {
-      StoreManagerId: 2,
-      StoreManagerName: "Naman Shah",
-      fte: 2,
-    },
-    storeType: {
-      Inflow: {
-        purchaseOrder: "False",
-        stockTransfer: "True",
-      },
-      Outflow: {
-        stockTransfer: "True",
-        salvage: "True",
-        sales: "True",
-      },
-    },
+    inventory: 20,
+    measurement: "Units",
   },
->>>>>>> 9297833995cd84af43ecd478a9ef472dc3ff8d78
+  {
+    productId: 2,
+    storeId: 1,
+    inventory: 30,
+    measurement: "Kg",
+  },
+  {
+    productId: 2,
+    storeId: 2,
+    inventory: 70,
+    measurement: "Kg",
+  },
 ];

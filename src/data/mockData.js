@@ -1424,7 +1424,7 @@ export const mockDataProduct = [
   },
 ];
 
-export const mockDataVendorProduct = [
+/*export const mockDataVendorProduct = [
   {
     vendorId: 1,
     productId: 3,
@@ -1455,9 +1455,9 @@ export const mockDataVendorProduct = [
     buyPrice: 37,
     unit: "Kg",
   },
-];
+];*/
 
-export const mockDataStoreList = [
+/*export const mockDataStoreList = [
   {
     storeId: 1,
     storeName: "Eastern Warehouse",
@@ -1474,7 +1474,7 @@ export const mockDataStoreList = [
     timezone: "IST",
     storeOperationalStatus: "True",
   },
-];
+];*/
 
 export const mockDataStoreDetails = [
 	{
@@ -1565,7 +1565,7 @@ export const mockDataStoreDetails = [
 	}
 ];
 
-export const mockDataProductList = [
+/*export const mockDataProductList = [
   {
     productId: 1,
     productName: "Small Bananas",
@@ -1580,7 +1580,7 @@ export const mockDataProductList = [
     measurement: "Kg",
     totalInventory: 100
   }
-];
+];*/
 
 export const mockDataProductDetails = [
   {
@@ -1619,6 +1619,137 @@ export const mockDataProductDetails = [
           inventory: 70
         }
         
+      ]
+  }
+];
+
+export const mockDataInventoryDetails = [
+  {
+    productId: 1,
+    storeId: 1,
+    inventory: 40,
+    measurement: "Units",
+  },
+  {
+    productId: 1,
+    storeId: 2,
+    inventory: 20,
+    measurement: "Units",
+  },
+  {
+    productId: 2,
+    storeId: 1,
+    inventory: 30,
+    measurement: "Kg",
+  },
+  {
+    productId: 2,
+    storeId: 2,
+    inventory: 70,
+    measurement: "Kg",
+  },
+];
+
+export const mockDataCustomerDetails = [
+  {
+    customerId: 1,
+    customerName: "Manish Yadav",
+    phoneNumber: "(665)121-5454",
+    email: "manishyadav5@gmail.com",
+    address1: "Keerthi Mansion",
+    address2: "WhiteField Road",
+    city: "Bangalore",
+    state: "Karnataka",
+    country: "India",
+    pincode: "456111",
+    orderDetails:
+      [
+        {
+          orderId: 1,
+        },
+        {
+          orderId: 3,
+        },
+      ]
+  },
+  {
+    customerId: 2,
+    customerName: "Parul Sharma",
+    phoneNumber: "(665)191-5400",
+    email: "",
+    address1: "",
+    address2: "",
+    city: "",
+    state: "",
+    country: "",
+    pincode: "",
+    orderDetails:
+      [
+        {
+          orderId: 2,
+        }
+      ]
+  },
+];
+
+export const mockDataOrderDetails = [
+  {
+    orderId: 1,
+    storeId: 2,
+    customerId: 1,
+    orderDateTime: "2024-03-12 10:12:33",
+    omnichannel: "Offline",
+    omnichannelType: "In-Store",
+    carrier: "",
+    carrierService: "",
+    orderLines:
+      [
+        {
+          itemId: 1,
+          purchasedQuantity: 3,
+          measurement: "Units"
+        }
+      ]
+  },
+  {
+    orderId: 2,
+    storeId: 2,
+    customerId: 2,
+    orderDateTime: "2024-03-16 17:12:33",
+    omnichannel: "Offline",
+    omnichannelType: "In-Store",
+    carrier: "",
+    carrierService: "",
+    orderLines:
+      [
+        {
+          itemId: 1,
+          purchasedQuantity: 1,
+          measurement: "Units"
+        },
+        {
+          itemId: 2,
+          purchasedQuantity: 1,
+          measurement: "Kg"
+        }
+      ]
+  },
+  {
+    orderId: 3,
+    storeId: 2,
+    customerId: 1,
+    orderDateTime: "2024-03-22 12:55:22",
+    omnichannel: "OnlineApp",
+    omnichannelType: "STH",
+    carrier: "Owned",
+    carrierService: "Owned",
+    orderLines:
+      [
+        {
+          itemId: 2,
+          purchasedQuantity: 5,
+          measurement: "Kg"
+        }
       ]
   }
 ];

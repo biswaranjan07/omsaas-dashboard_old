@@ -1,46 +1,81 @@
 import { Box, useTheme } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
-import { mockDataStoreDetails } from "../../data/mockData"; // Updated import
+import { mockDataCustomerDetails } from "../../data/mockData"; // Use mockDataCustomerDetails
 import { useNavigate } from 'react-router-dom';
 
-const StoreList = () => {
+const CustomerList = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const navigate = useNavigate();
 
   const columns = [
-    { field: "storeId", headerName: "Store ID", flex: 0.5 },
+    { field: "customerId", headerName: "Customer ID", flex: 0.5 },
     {
-      field: "storeName",
-      headerName: "Store Name",
+      field: "customerName",
+      headerName: "Customer Name",
       flex: 1,
       cellClassName: "name-column--cell",
+      renderCell: (params) => (
+        <span>
+          {params.value || "Not Available"}
+        </span>
+      ),
     },
     {
-      field: "storeStartTime",
-      headerName: "Start Time",
+      field: "phoneNumber",
+      headerName: "Contact",
       flex: 1,
+      renderCell: (params) => (
+        <span>
+          {params.value || "Not Available"}
+        </span>
+      ),
     },
     {
-      field: "storeEndtime",
-      headerName: "End Time",
+      field: "email",
+      headerName: "Email",
       flex: 1,
+      renderCell: (params) => (
+        <span>
+          {params.value || "Not Available"}
+        </span>
+      ),
     },
     {
-      field: "timezone",
-      headerName: "Timezone",
+      field: "city",
+      headerName: "City",
       flex: 1,
+      renderCell: (params) => (
+        <span>
+          {params.value || "Not Available"}
+        </span>
+      ),
     },
     {
-      field: "storeOperationalStatus",
-      headerName: "Operational Status",
+      field: "state",
+      headerName: "State",
       flex: 1,
+      renderCell: (params) => (
+        <span>
+          {params.value || "Not Available"}
+        </span>
+      ),
+    },
+    {
+      field: "country",
+      headerName: "Country",
+      flex: 1,
+      renderCell: (params) => (
+        <span>
+          {params.value || "Not Available"}
+        </span>
+      ),
     },
   ];
 
   const handleRowClick = (params) => {
-    navigate(`/storeDetails/${params.id}`);
+    navigate(`/customerDetails/${params.row.customerId}`);
   };
 
   return (
@@ -78,14 +113,17 @@ const StoreList = () => {
         }}
       >
         <DataGrid
-          getRowId={(row) => row.storeId}
-          rows={mockDataStoreDetails} // Use mockDataStoreDetails
+          getRowId={(row) => row.customerId}
+          rows={mockDataCustomerDetails} // Use mockDataCustomerDetails
           columns={columns}
           onRowClick={handleRowClick}
+          pageSize={5}
+          rowsPerPageOptions={[5, 10, 20]}
+          pagination
         />
       </Box>
     </Box>
   );
 };
 
-export default StoreList;
+export default CustomerList;

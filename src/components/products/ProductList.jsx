@@ -1,7 +1,7 @@
 import { Box, useTheme } from "@mui/material";
-import { DataGrid, GridToolbar } from "@mui/x-data-grid";
+import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
-import { mockDataProductList } from "../../data/mockData";
+import { mockDataProductDetails } from "../../data/mockData"; // Use mockDataProductDetails
 import { useNavigate } from 'react-router-dom';
 
 const ProductList = () => {
@@ -35,7 +35,7 @@ const ProductList = () => {
   ];
 
   const handleRowClick = (params) => {
-    navigate(`/productDetails/${params.id}`);
+    navigate(`/productDetails/${params.row.productId}`);
   };
 
   return (
@@ -74,9 +74,12 @@ const ProductList = () => {
       >
         <DataGrid
           getRowId={(row) => row.productId}
-          rows={mockDataProductList}
+          rows={mockDataProductDetails} // Use mockDataProductDetails
           columns={columns}
           onRowClick={handleRowClick}
+          pageSize={5}
+          rowsPerPageOptions={[5, 10, 20]}
+          pagination
         />
       </Box>
     </Box>

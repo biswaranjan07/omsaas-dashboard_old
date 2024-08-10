@@ -76,12 +76,14 @@ const ProductDetails = () => {
 
   return (
     <Box m="20px">
-      <Typography variant="h4" gutterBottom>
+      <Header title={`${product.productName} Details`} />
+      <Header subtitle={`Product ID: ${product.productId}`} />
+      {/*<Typography variant="h4" gutterBottom>
         {product.productName} Details
       </Typography>
       <Typography variant="body1">
         <strong>Product ID:</strong> {product.productId}
-      </Typography>
+      </Typography>*/}
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -224,7 +226,10 @@ const ProductDetails = () => {
               <Button variant="contained" color="secondary" type="submit">
                 Save
               </Button>
-              <Button variant="contained" color="secondary" onClick={handleDelete}>
+              {/*<Button variant="contained" color="secondary" onClick={handleDelete}>
+                Delete
+              </Button>*/}
+              <Button variant="contained" color="error" onClick={handleDelete}>
                 Delete
               </Button>
             </Box>

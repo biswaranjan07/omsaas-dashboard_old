@@ -21,6 +21,11 @@ import ProductDetails from "./scenes/productDetails";
 import NewStore from "./scenes/createNewStore";
 import NewProduct from "./scenes/createNewProduct";
 import AllProducts from "./scenes/allProducts";
+import AllInventory from "./scenes/allInventory";
+import TransferStock from "./scenes/transferStock";
+import AllCustomers from "./scenes/allCustomers";
+import CustomerDetails from "./scenes/customerDetails";
+import NewCustomer from "./scenes/createNewCustomer";
 import Documentation from "./scenes/document";
 import Document from "./scenes/document";
 import UserManagementGuide from "./scenes/document/userManagement/UserManagementGuide";
@@ -56,6 +61,11 @@ function App() {
               <Route path="/product" element={<AllProducts />} />
               <Route path="/productDetails/:id" element={<ProductDetails />} />
               <Route path="/createNewProduct" element={<NewProduct />} />
+              <Route path="/allInventory" element={<AllInventory />} />
+              <Route path="/transferStock" element={<TransferStock />} />
+              <Route path="/customer" element={<AllCustomers />} />
+              <Route path="/customerDetails/:id" element={<CustomerDetails />} />
+              <Route path="/createNewCustomer" element={<NewCustomer />} />
               <Route path="/inventory" element={<Inventory />} />
               <Route path="/sales" element={<Sales />} />
               <Route path="/faq" element={<FAQ />} />
