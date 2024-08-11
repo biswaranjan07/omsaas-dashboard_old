@@ -25,9 +25,6 @@ const UserManagementAdding = () => {
       >
         Back
       </Button>
-      <Typography variant="h4" fontWeight="bold" gutterBottom>
-        User Guide: Managing Users
-      </Typography>
       <Typography variant="h5" fontWeight="bold" gutterBottom>
         Adding a New User
       </Typography>

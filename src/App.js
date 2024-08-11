@@ -28,10 +28,10 @@ import CustomerDetails from "./scenes/customerDetails";
 import NewCustomer from "./scenes/createNewCustomer";
 import Documentation from "./scenes/document";
 import Document from "./scenes/document";
-import UserManagementGuide from "./scenes/document/userManagement/UserManagementGuide";
+import UserManagementGuide from "./scenes/document/userManagement/userManagementGuide";
 import UserManagementAdding from "./scenes/document/userManagement/UserManagementAdding";
 import UserManagementViewing from "./scenes/document/userManagement/UserManagementViewing";
-import UserManagementRolesPermissions from "./scenes/document/userManagement/UserManagementRolesPermissions";
+import UserManagementRolesPermissions from "./scenes/document/userManagement/userManagementRolesPermissions";
 import UserManagementPermissions from "./scenes/document/userManagement/UserManagementPermissions";
 import UserManagementPasswordReset from "./scenes/document/userManagement/UserManagementPasswordReset";
 
