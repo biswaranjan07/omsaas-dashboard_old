@@ -1,7 +1,18 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { mockDataCustomerDetails, mockDataOrderDetails } from "../../data/mockData"; // Import both mockDataCustomerDetails and mockDataOrderDetails
-import { Box, Typography, TextField, Button, useTheme, InputAdornment } from "@mui/material";
+import {
+  mockDataCustomerDetails,
+  mockDataSalesOrderDetails,
+  mockDataStoreDetails, // Import mockDataStoreDetails
+} from "../../data/mockData"; // Import all necessary mock data
+import {
+  Box,
+  Typography,
+  TextField,
+  Button,
+  useTheme,
+  InputAdornment,
+} from "@mui/material";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -45,7 +56,13 @@ const CustomerDetails = () => {
   const validationSchema = Yup.object({
     customerName: Yup.string().required("Required"),
     phoneNumber: Yup.string().required("Required"),
-    email: Yup.string().email("Invalid email").required("Required"),
+    email: Yup.string()
+      .test(
+        "is-valid-email-or-not-available",
+        "Invalid email",
+        (value) => value === "Not Available" || Yup.string().email().isValidSync(value)
+      )
+      .required("Required"),
     address1: Yup.string().required("Required"),
     address2: Yup.string(),
     city: Yup.string().required("Required"),
@@ -77,9 +94,20 @@ const CustomerDetails = () => {
     }
   };
 
-  const orderDetails = mockDataOrderDetails.filter(
+  const salesOrderDetails = mockDataSalesOrderDetails.filter(
     (order) => order.customerId === parseInt(id)
   );
+
+  // Map store IDs to store names for display in the DataGrid
+  const salesOrderRows = salesOrderDetails.map((order) => {
+    const store = mockDataStoreDetails.find(
+      (store) => store.storeId === order.storeId
+    );
+    return {
+      ...order,
+      storeName: store ? store.storeName : "Unknown",
+    };
+  });
 
   const columns = [
     {
@@ -93,8 +121,8 @@ const CustomerDetails = () => {
       ),
     },
     {
-      field: "storeId",
-      headerName: "Store ID",
+      field: "storeName",
+      headerName: "Store Name",
       flex: 1,
       renderCell: (params) => (
         <span style={{ color: params.value ? "inherit" : "red" }}>
@@ -113,6 +141,16 @@ const CustomerDetails = () => {
       ),
     },
     {
+      field: "orderTimeZone",
+      headerName: "Timezone",
+      flex: 1,
+      renderCell: (params) => (
+        <span style={{ color: params.value ? "inherit" : "red" }}>
+          {params.value || "Not Available"}
+        </span>
+      ),
+    },
+    {
       field: "omnichannel",
       headerName: "Omnichannel",
       flex: 1,
@@ -123,8 +161,8 @@ const CustomerDetails = () => {
       ),
     },
     {
-      field: "omnichannelType",
-      headerName: "Omnichannel Type",
+      field: "fulfilment",
+      headerName: "Fulfilment",
       flex: 1,
       renderCell: (params) => (
         <span style={{ color: params.value ? "inherit" : "red" }}>
@@ -155,7 +193,7 @@ const CustomerDetails = () => {
   ];
 
   const handleRowClick = (params) => {
-    navigate(`/orderDetails/${params.row.orderId}`);
+    navigate(`/salesOrderDetails/${params.row.orderId}`);
   };
 
   return (
@@ -196,7 +234,8 @@ const CustomerDetails = () => {
                 sx={{ gridColumn: "span 2" }}
                 inputProps={{
                   style: {
-                    color: values.customerName === "Not Available" ? "red" : "inherit",
+                    color:
+                      values.customerName === "Not Available" ? "red" : "inherit",
                   },
                 }}
               />
@@ -218,7 +257,8 @@ const CustomerDetails = () => {
                 sx={{ gridColumn: "span 1" }}
                 inputProps={{
                   style: {
-                    color: values.phoneNumber === "Not Available" ? "red" : "inherit",
+                    color:
+                      values.phoneNumber === "Not Available" ? "red" : "inherit",
                   },
                 }}
               />
@@ -389,7 +429,7 @@ const CustomerDetails = () => {
                 }}
               >
                 <DataGrid
-                  rows={orderDetails}
+                  rows={salesOrderRows} // Use salesOrderRows to map store names
                   columns={columns}
                   pageSize={3}
                   rowsPerPageOptions={[3]}

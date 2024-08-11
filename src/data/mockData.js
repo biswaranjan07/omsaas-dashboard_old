@@ -1692,14 +1692,15 @@ export const mockDataCustomerDetails = [
   },
 ];
 
-export const mockDataOrderDetails = [
+export const mockDataSalesOrderDetails = [
   {
     orderId: 1,
     storeId: 2,
     customerId: 1,
     orderDateTime: "2024-03-12 10:12:33",
-    omnichannel: "Offline",
-    omnichannelType: "In-Store",
+    orderTimeZone: "IST",
+    omnichannel: "Walk In",
+    fulfilment: "In-store",
     carrier: "",
     carrierService: "",
     orderLines:
@@ -1716,8 +1717,9 @@ export const mockDataOrderDetails = [
     storeId: 2,
     customerId: 2,
     orderDateTime: "2024-03-16 17:12:33",
-    omnichannel: "Offline",
-    omnichannelType: "In-Store",
+    orderTimeZone: "IST",
+    omnichannel: "Walk In",
+    fulfilment: "In-store",
     carrier: "",
     carrierService: "",
     orderLines:
@@ -1739,8 +1741,9 @@ export const mockDataOrderDetails = [
     storeId: 2,
     customerId: 1,
     orderDateTime: "2024-03-22 12:55:22",
-    omnichannel: "OnlineApp",
-    omnichannelType: "STH",
+    orderTimeZone: "IST",
+    omnichannel: "App",
+    fulfilment: "Ship To Home",
     carrier: "Owned",
     carrierService: "Owned",
     orderLines:

@@ -17,7 +17,7 @@ const CustomerList = () => {
       flex: 1,
       cellClassName: "name-column--cell",
       renderCell: (params) => (
-        <span>
+        <span style={{ color: params.value ? "inherit" : "red" }}>
           {params.value || "Not Available"}
         </span>
       ),
@@ -27,7 +27,7 @@ const CustomerList = () => {
       headerName: "Contact",
       flex: 1,
       renderCell: (params) => (
-        <span>
+        <span style={{ color: params.value ? "inherit" : "red" }}>
           {params.value || "Not Available"}
         </span>
       ),
@@ -37,7 +37,7 @@ const CustomerList = () => {
       headerName: "Email",
       flex: 1,
       renderCell: (params) => (
-        <span>
+        <span style={{ color: params.value ? "inherit" : "red" }}>
           {params.value || "Not Available"}
         </span>
       ),
@@ -47,7 +47,7 @@ const CustomerList = () => {
       headerName: "City",
       flex: 1,
       renderCell: (params) => (
-        <span>
+        <span style={{ color: params.value ? "inherit" : "red" }}>
           {params.value || "Not Available"}
         </span>
       ),
@@ -57,7 +57,7 @@ const CustomerList = () => {
       headerName: "State",
       flex: 1,
       renderCell: (params) => (
-        <span>
+        <span style={{ color: params.value ? "inherit" : "red" }}>
           {params.value || "Not Available"}
         </span>
       ),
@@ -67,7 +67,7 @@ const CustomerList = () => {
       headerName: "Country",
       flex: 1,
       renderCell: (params) => (
-        <span>
+        <span style={{ color: params.value ? "inherit" : "red" }}>
           {params.value || "Not Available"}
         </span>
       ),
