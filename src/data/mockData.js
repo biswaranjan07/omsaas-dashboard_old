@@ -1756,3 +1756,9 @@ export const mockDataSalesOrderDetails = [
       ]
   }
 ];
+
+export const measurements = ["Units", "Dozen", "Kg", "g", "Pound (lb)"];
+export const omnichannel = ["Walk In", "App", "Web", "Amazon","Swiggy","Flipkart","Zomato","Meesho","Others"];
+export const fulfilment = ["In-store","Ship To Home","Order Pick Up","Drive Up","Others"];
+export const carrier = ["Owned","Others"];
+export const carrierservice = ["Owned","Others"];

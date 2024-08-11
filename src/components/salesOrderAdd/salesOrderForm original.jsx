@@ -13,6 +13,9 @@ import {
   TableRow,
   IconButton,
   Paper,
+  Select,
+  MenuItem,
+  FormControl,
 } from "@mui/material";
 import React, { useState } from "react";
 import { Formik } from "formik";
@@ -27,16 +30,26 @@ import LocationCityIcon from "@mui/icons-material/LocationCity";
 import PublicIcon from "@mui/icons-material/Public";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
-import StoreIcon from "@mui/icons-material/Store";
-import OmnichannelIcon from "@mui/icons-material/ImportExport"; // Use appropriate icon for Omnichannel
-import FulfilmentIcon from "@mui/icons-material/DoneAll"; // Use appropriate icon for Fulfilment
-import CarrierIcon from "@mui/icons-material/LocalShipping"; // Use appropriate icon for Carrier
-import CarrierServiceIcon from "@mui/icons-material/Settings"; // Use appropriate icon for Carrier Service
+import SyncAltIcon from "@mui/icons-material/SyncAlt";
+import AssignmentIcon from "@mui/icons-material/Assignment";
+import LocalShippingIcon from "@mui/icons-material/LocalShipping";
+import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
+import StoreIcon from "@mui/icons-material/Store";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import { useTheme } from "@mui/material/styles";
 import { tokens } from "../../theme";
-import { mockDataCustomerDetails } from "../../data/mockData"; // Import the mock data
+import {
+  mockDataCustomerDetails,
+  mockDataStoreDetails,
+  omnichannel,
+  fulfilment,
+  carrier,
+  carrierservice,
+} from "../../data/mockData";
+
+// Sample measurements array
+const measurements = ["Units", "Dozen", "Kg", "g", "Pound (lb)"]; // Assuming this comes from the measurements JSON
 
 const SalesOrderForm = () => {
   const theme = useTheme();
@@ -70,6 +83,10 @@ const SalesOrderForm = () => {
 
   const customerNames = mockDataCustomerDetails.map(
     (customer) => customer.customerName
+  );
+
+  const storeNames = Array.from(
+    new Set(mockDataStoreDetails.map((store) => store.storeName))
   );
 
   const handleAddOrderLine = () => {
@@ -443,7 +460,7 @@ const SalesOrderForm = () => {
                 <TextField
                   fullWidth
                   variant="filled"
-                  type="text"
+                  select
                   label="Store Name"
                   InputProps={{
                     startAdornment: (
@@ -459,16 +476,22 @@ const SalesOrderForm = () => {
                   error={!!touched.storeName && !!errors.storeName}
                   helperText={touched.storeName && errors.storeName}
                   sx={{ gridColumn: "span 2" }}
-                />
+                >
+                  {storeNames.map((store) => (
+                    <MenuItem key={store} value={store}>
+                      {store}
+                    </MenuItem>
+                  ))}
+                </TextField>
                 <TextField
                   fullWidth
                   variant="filled"
-                  type="text"
+                  select
                   label="Omnichannel"
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position="start">
-                        <OmnichannelIcon />
+                        <SyncAltIcon />
                       </InputAdornment>
                     ),
                   }}
@@ -479,16 +502,22 @@ const SalesOrderForm = () => {
                   error={!!touched.omnichannel && !!errors.omnichannel}
                   helperText={touched.omnichannel && errors.omnichannel}
                   sx={{ gridColumn: "span 2" }}
-                />
+                >
+                  {omnichannel.map((channel) => (
+                    <MenuItem key={channel} value={channel}>
+                      {channel}
+                    </MenuItem>
+                  ))}
+                </TextField>
                 <TextField
                   fullWidth
                   variant="filled"
-                  type="text"
+                  select
                   label="Fulfilment"
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position="start">
-                        <FulfilmentIcon />
+                        <AssignmentIcon />
                       </InputAdornment>
                     ),
                   }}
@@ -499,16 +528,22 @@ const SalesOrderForm = () => {
                   error={!!touched.fulfilment && !!errors.fulfilment}
                   helperText={touched.fulfilment && errors.fulfilment}
                   sx={{ gridColumn: "span 2" }}
-                />
+                >
+                  {fulfilment.map((method) => (
+                    <MenuItem key={method} value={method}>
+                      {method}
+                    </MenuItem>
+                  ))}
+                </TextField>
                 <TextField
                   fullWidth
                   variant="filled"
-                  type="text"
+                  select
                   label="Carrier"
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position="start">
-                        <CarrierIcon />
+                        <LocalShippingIcon />
                       </InputAdornment>
                     ),
                   }}
@@ -519,16 +554,22 @@ const SalesOrderForm = () => {
                   error={!!touched.carrier && !!errors.carrier}
                   helperText={touched.carrier && errors.carrier}
                   sx={{ gridColumn: "span 1" }}
-                />
+                >
+                  {carrier.map((service) => (
+                    <MenuItem key={service} value={service}>
+                      {service}
+                    </MenuItem>
+                  ))}
+                </TextField>
                 <TextField
                   fullWidth
                   variant="filled"
-                  type="text"
+                  select
                   label="Carrier Service"
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position="start">
-                        <CarrierServiceIcon />
+                        <MailOutlineIcon />
                       </InputAdornment>
                     ),
                   }}
@@ -539,7 +580,13 @@ const SalesOrderForm = () => {
                   error={!!touched.carrierService && !!errors.carrierService}
                   helperText={touched.carrierService && errors.carrierService}
                   sx={{ gridColumn: "span 1" }}
-                />
+                >
+                  {carrierservice.map((service) => (
+                    <MenuItem key={service} value={service}>
+                      {service}
+                    </MenuItem>
+                  ))}
+                </TextField>
               </Box>
             </form>
           )}
@@ -563,46 +610,52 @@ const SalesOrderForm = () => {
           <Table>
             <TableHead>
               <TableRow>
-                <TableCell>Item Id</TableCell>
-                <TableCell>Requested Quantity</TableCell>
-                <TableCell>Measurement</TableCell>
-                <TableCell>Actions</TableCell>
+                <TableCell sx={{ backgroundColor: colors.blueAccent[500], color: "white" }}>Item Id</TableCell>
+                <TableCell sx={{ backgroundColor: colors.blueAccent[500], color: "white" }}>Requested Quantity</TableCell>
+                <TableCell sx={{ backgroundColor: colors.blueAccent[500], color: "white" }}>Measurement</TableCell>
+                <TableCell sx={{ backgroundColor: colors.blueAccent[500], color: "white" }}>Actions</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {orderLines.map((line, index) => (
                 <TableRow key={index}>
-                  <TableCell>
+                  <TableCell sx={{ backgroundColor: "rgba(0, 0, 0, 0.1)" }}>
                     <TextField
                       fullWidth
-                      variant="outlined"
+                      variant="filled"
                       value={line.itemId}
                       onChange={(e) =>
                         handleOrderLineChange(index, "itemId", e.target.value)
                       }
                     />
                   </TableCell>
-                  <TableCell>
+                  <TableCell sx={{ backgroundColor: "rgba(0, 0, 0, 0.1)" }}>
                     <TextField
                       fullWidth
-                      variant="outlined"
+                      variant="filled"
                       value={line.requestedQuantity}
                       onChange={(e) =>
                         handleOrderLineChange(index, "requestedQuantity", e.target.value)
                       }
                     />
                   </TableCell>
-                  <TableCell>
-                    <TextField
-                      fullWidth
-                      variant="outlined"
-                      value={line.measurement}
-                      onChange={(e) =>
-                        handleOrderLineChange(index, "measurement", e.target.value)
-                      }
-                    />
+                  <TableCell sx={{ backgroundColor: "rgba(0, 0, 0, 0.1)" }}>
+                    <FormControl fullWidth variant="filled">
+                      <Select
+                        value={line.measurement}
+                        onChange={(e) =>
+                          handleOrderLineChange(index, "measurement", e.target.value)
+                        }
+                      >
+                        {measurements.map((measurement, idx) => (
+                          <MenuItem key={idx} value={measurement}>
+                            {measurement}
+                          </MenuItem>
+                        ))}
+                      </Select>
+                    </FormControl>
                   </TableCell>
-                  <TableCell>
+                  <TableCell sx={{ backgroundColor: "rgba(0, 0, 0, 0.1)" }}>
                     <IconButton
                       color="secondary"
                       onClick={() => handleAddOrderLine()}
