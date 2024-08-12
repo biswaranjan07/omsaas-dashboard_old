@@ -30,7 +30,6 @@ import { useTheme } from "@mui/material/styles";
 import { tokens } from "../../theme";
 import {
   mockDataStoreDetails,
-  mockDataProductDetails,
   carrier,
   carrierservice,
   transferType,
@@ -42,7 +41,7 @@ const StockTransferForm = () => {
   const colors = tokens(theme.palette.mode);
   const isNonMobile = useMediaQuery("(min-width:600px)");
   const [orderLines, setOrderLines] = useState([
-    { productName: "", requestedQuantity: "", measurement: "" },
+    { productId: "", requestedQuantity: "", measurement: "" },
   ]);
 
   const handleFormSubmit = async (values) => {
@@ -69,20 +68,10 @@ const StockTransferForm = () => {
     new Set(mockDataStoreDetails.map((store) => store.storeName))
   );
 
-  const productNames = Array.from(
-    new Set(mockDataProductDetails.map((product) => product.productName))
-  );
-
-  // Create a map for product name to measurement lookup
-  const productMeasurementMap = mockDataProductDetails.reduce((acc, product) => {
-    acc[product.productName] = product.measurement;
-    return acc;
-  }, {});
-
   const handleAddOrderLine = () => {
     setOrderLines([
       ...orderLines,
-      { productName: "", requestedQuantity: "", measurement: "" },
+      { productId: "", requestedQuantity: "", measurement: "" },
     ]);
   };
 
@@ -95,12 +84,6 @@ const StockTransferForm = () => {
   const handleOrderLineChange = (index, field, value) => {
     const newOrderLines = [...orderLines];
     newOrderLines[index][field] = value;
-
-    // Auto-populate measurement based on product name
-    if (field === "productName") {
-      newOrderLines[index].measurement = productMeasurementMap[value] || "";
-    }
-
     setOrderLines(newOrderLines);
   };
 
@@ -330,7 +313,7 @@ const StockTransferForm = () => {
                     color: "white",
                   }}
                 >
-                  Product Name
+                  Product Id
                 </TableCell>
                 <TableCell
                   sx={{
@@ -362,24 +345,14 @@ const StockTransferForm = () => {
               {orderLines.map((line, index) => (
                 <TableRow key={index}>
                   <TableCell sx={{ backgroundColor: "rgba(0, 0, 0, 0.1)" }}>
-                    <FormControl fullWidth variant="filled">
-                      <Select
-                        value={line.productName}
-                        onChange={(e) =>
-                          handleOrderLineChange(
-                            index,
-                            "productName",
-                            e.target.value
-                          )
-                        }
-                      >
-                        {productNames.map((productName, idx) => (
-                          <MenuItem key={idx} value={productName}>
-                            {productName}
-                          </MenuItem>
-                        ))}
-                      </Select>
-                    </FormControl>
+                    <TextField
+                      fullWidth
+                      variant="filled"
+                      value={line.productId}
+                      onChange={(e) =>
+                        handleOrderLineChange(index, "productId", e.target.value)
+                      }
+                    />
                   </TableCell>
                   <TableCell sx={{ backgroundColor: "rgba(0, 0, 0, 0.1)" }}>
                     <TextField
@@ -406,7 +379,6 @@ const StockTransferForm = () => {
                             e.target.value
                           )
                         }
-                        disabled // Disable manual change of measurement
                       >
                         {measurements.map((measurement, idx) => (
                           <MenuItem key={idx} value={measurement}>

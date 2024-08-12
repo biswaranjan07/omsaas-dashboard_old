@@ -196,6 +196,13 @@ const Sidebar = () => {
             >
             <Item
               title="Transfer Stock"
+              to="/allStockTransfer"
+              icon={<PeopleOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Snapshot"
               to="/allInventory"
               icon={<PeopleOutlinedIcon />}
               selected={selected}
@@ -244,9 +251,16 @@ const Sidebar = () => {
             selected={selected}
             setSelected={setSelected}
             />
-            <Item
+            {/*<Item
               title="Promotions"
               to="/promotion"
+              icon={<PeopleOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />*/}
+            <Item
+              title="Items"
+              to="/items"
               icon={<PeopleOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}

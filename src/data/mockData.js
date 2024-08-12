@@ -1694,7 +1694,7 @@ export const mockDataCustomerDetails = [
 
 export const mockDataSalesOrderDetails = [
   {
-    orderId: 1,
+    orderId: 4,
     storeId: 2,
     customerId: 1,
     orderDateTime: "2024-03-12 10:12:33",
@@ -1713,7 +1713,7 @@ export const mockDataSalesOrderDetails = [
       ]
   },
   {
-    orderId: 2,
+    orderId: 5,
     storeId: 2,
     customerId: 2,
     orderDateTime: "2024-03-16 17:12:33",
@@ -1737,7 +1737,7 @@ export const mockDataSalesOrderDetails = [
       ]
   },
   {
-    orderId: 3,
+    orderId: 6,
     storeId: 2,
     customerId: 1,
     orderDateTime: "2024-03-22 12:55:22",
@@ -1762,3 +1762,103 @@ export const omnichannel = ["Walk In", "App", "Web", "Amazon","Swiggy","Flipkart
 export const fulfilment = ["In-store","Ship To Home","Order Pick Up","Drive Up","Others"];
 export const carrier = ["Owned","Others"];
 export const carrierservice = ["Owned","Others"];
+export const transferType = ["Salvage","Internal"];
+
+export const mockDataStockTransfer = [
+  {
+    orderId: 1,
+    orderType: "Salvage",
+    origin:
+      {
+        storeId: 1,
+        storeName: "Eastern Warehouse"
+      },
+    destination:
+      {
+        storeId: 6666,
+        storeName: "Others"
+      },
+    orderDateTime: "2024-03-04 10:12:33",
+    orderTimeZone: "IST",
+    orderDetails:
+      {
+        carrier: "Others",
+        carrierService: "Others",
+        currency: "Rs",
+        buyPrice: 50,
+        sellPrice: 0
+      },
+    orderLines:
+      [
+        {
+          productId: 1,
+          purchasedQuantity: 10,
+          measurement: "Units"
+        }
+      ]
+  },
+  {
+    orderId: 2,
+    orderType: "Internal",
+    origin:
+      {
+        storeId: 1,
+        storeName: "Eastern Warehouse"
+      },
+    destination:
+      {
+        storeId: 2,
+        storeName: "MJ Road Store"
+      },
+    orderDateTime: "2024-03-05 10:12:33",
+    orderTimeZone: "IST",
+    orderDetails:
+      {
+        carrier: "Owned",
+        carrierService: "Owned",
+        currency: "Rs",
+        buyPrice: 50,
+        sellPrice: 50,
+      },
+    orderLines:
+      [
+        {
+          productId: 1,
+          purchasedQuantity: 24,
+          measurement: "Units"
+        }
+      ]
+  },
+  {
+    orderId: 3,
+    orderType: "Internal",
+    origin:
+      {
+        storeId: 1,
+        storeName: "Eastern Warehouse"
+      },
+    destination:
+      {
+        storeId: 2,
+        storeName: "MJ Road Store"
+      },
+    orderDateTime: "2024-03-05 17:12:33",
+    orderTimeZone: "IST",
+    orderDetails:
+      {
+        carrier: "Owned",
+        carrierService: "Owned",
+        currency: "Rs",
+        buyPrice: 50,
+        sellPrice: 50,
+      },
+    orderLines:
+      [
+        {
+          productId: 2,
+          purchasedQuantity: 76,
+          measurement: "Units"
+        }
+      ]
+  }
+];

@@ -28,6 +28,8 @@ import NewCustomer from "./scenes/createNewCustomer";
 import SalesOrderDetails from "./scenes/salesOrderDetails";
 import AllSales from "./scenes/allSales";
 import NewSalesOrder from "./scenes/createNewSalesOrder";
+import AllStockTransfer from "./scenes/allStockTransfer";
+import StockTransferDetails from "./scenes/stockTransferDetails";
 
 
 function App() {
@@ -56,10 +58,12 @@ function App() {
               <Route path="/productDetails/:id" element={<ProductDetails />} />
               <Route path="/createNewProduct" element={<NewProduct />} />
               <Route path="/allInventory" element={<AllInventory />} />
+              <Route path="/allStockTransfer" element={<AllStockTransfer />} />
               <Route path="/transferStock" element={<TransferStock />} />
               <Route path="/customer" element={<AllCustomers />} />
               <Route path="/customerDetails/:id" element={<CustomerDetails />} />
               <Route path="/salesOrderDetails/:id" element={<SalesOrderDetails />} />
+              <Route path="/stockTransferDetails/:id" element={<StockTransferDetails />} />
               <Route path="/createNewCustomer" element={<NewCustomer />} />
               <Route path="/createNewSalesOrder" element={<NewSalesOrder />} />
               <Route path="/inventory" element={<Inventory />} />
