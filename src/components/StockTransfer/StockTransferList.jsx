@@ -37,7 +37,16 @@ const StockTransferList = () => {
 
   const columns = [
     { field: "orderId", headerName: "Order ID", flex: 0.5 },
-    { field: "orderType", headerName: "Transfer Type", flex: 1 },
+    {
+      field: "orderType",
+      headerName: "Transfer Type",
+      flex: 1,
+      renderCell: (params) => (
+        <span style={{ color: colors.greenAccent[300] }}>
+          {params.value || "Not Available"}
+        </span>
+      ),
+    },
     { field: "originName", headerName: "Origin", flex: 1 },
     { field: "destinationName", headerName: "Destination", flex: 1 },
     { field: "orderDateTime", headerName: "Order Date and Time", flex: 1 },
