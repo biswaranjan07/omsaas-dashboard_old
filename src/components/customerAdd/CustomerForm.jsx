@@ -9,29 +9,35 @@ import EmailIcon from "@mui/icons-material/Email";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import HomeIcon from "@mui/icons-material/Home";
 import PinDropIcon from "@mui/icons-material/PinDrop";
+import LocationCityIcon from "@mui/icons-material/LocationCity";
+import PublicIcon from "@mui/icons-material/Public";
 
-const VendorForm = () => {
+const CustomerForm = () => {
   const isNonMobile = useMediaQuery("(min-width:600px)");
 
-  const [vendor, setVendor] = useState({
-    name: "",
+  const [customer, setCustomer] = useState({
+    customerName: "",
     email: "",
     phoneNumber: "",
-    address: "",
-    pin: ""
+    address1: "",
+    address2: "",
+    city: "",
+    state: "",
+    country: "",
+    pincode: "",
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setVendor((prevVendor) => ({
-      ...prevVendor,
+    setCustomer((prevCustomer) => ({
+      ...prevCustomer,
       [name]: value,
     }));
   };
 
   const handleFormSubmit = async (values) => {
     try {
-      const response = await fetch("http://localhost:8080/v1/vendor", {
+      const response = await fetch("http://localhost:8080/v1/customer", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -39,9 +45,9 @@ const VendorForm = () => {
         body: JSON.stringify(values),
       });
       if (response.ok) {
-        alert("Vendor added successfully");
+        alert("Customer added successfully");
       } else {
-        alert("Failed to add vendor");
+        alert("Failed to add customer");
       }
     } catch (error) {
       console.error("Error:", error);
@@ -51,10 +57,10 @@ const VendorForm = () => {
 
   return (
     <Box m="20px">
-      <Header subtitle="Vendor Details" />
+      <Header subtitle="Customer Details" />
       <Formik
         onSubmit={handleFormSubmit}
-        initialValues={vendor}
+        initialValues={customer}
         validationSchema={checkoutSchema}
       >
         {({
@@ -78,7 +84,7 @@ const VendorForm = () => {
                 fullWidth
                 variant="filled"
                 type="text"
-                label="Vendor Name"
+                label="Customer Name"
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
@@ -88,10 +94,10 @@ const VendorForm = () => {
                 }}
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.name}
-                name="name"
-                error={!!touched.name && !!errors.name}
-                helperText={touched.name && errors.name}
+                value={values.customerName}
+                name="customerName"
+                error={!!touched.customerName && !!errors.customerName}
+                helperText={touched.customerName && errors.customerName}
                 sx={{ gridColumn: "span 4" }}
               />
               <TextField
@@ -118,7 +124,7 @@ const VendorForm = () => {
                 fullWidth
                 variant="filled"
                 type="text"
-                label="Phone Number"
+                label="Contact"
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
@@ -138,7 +144,7 @@ const VendorForm = () => {
                 fullWidth
                 variant="filled"
                 type="text"
-                label="Address"
+                label="Address 1"
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
@@ -148,11 +154,91 @@ const VendorForm = () => {
                 }}
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.address}
-                name="address"
-                error={!!touched.address && !!errors.address}
-                helperText={touched.address && errors.address}
-                sx={{ gridColumn: "span 3" }}
+                value={values.address1}
+                name="address1"
+                error={!!touched.address1 && !!errors.address1}
+                helperText={touched.address1 && errors.address1}
+                sx={{ gridColumn: "span 4" }}
+              />
+              <TextField
+                fullWidth
+                variant="filled"
+                type="text"
+                label="Address 2"
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <HomeIcon />
+                    </InputAdornment>
+                  ),
+                }}
+                onBlur={handleBlur}
+                onChange={handleChange}
+                value={values.address2}
+                name="address2"
+                error={!!touched.address2 && !!errors.address2}
+                helperText={touched.address2 && errors.address2}
+                sx={{ gridColumn: "span 4" }}
+              />
+              <TextField
+                fullWidth
+                variant="filled"
+                type="text"
+                label="City"
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <LocationCityIcon />
+                    </InputAdornment>
+                  ),
+                }}
+                onBlur={handleBlur}
+                onChange={handleChange}
+                value={values.city}
+                name="city"
+                error={!!touched.city && !!errors.city}
+                helperText={touched.city && errors.city}
+                sx={{ gridColumn: "span 1" }}
+              />
+              <TextField
+                fullWidth
+                variant="filled"
+                type="text"
+                label="State"
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <LocationCityIcon />
+                    </InputAdornment>
+                  ),
+                }}
+                onBlur={handleBlur}
+                onChange={handleChange}
+                value={values.state}
+                name="state"
+                error={!!touched.state && !!errors.state}
+                helperText={touched.state && errors.state}
+                sx={{ gridColumn: "span 1" }}
+              />
+              <TextField
+                fullWidth
+                variant="filled"
+                type="text"
+                label="Country"
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <PublicIcon />
+                    </InputAdornment>
+                  ),
+                }}
+                onBlur={handleBlur}
+                onChange={handleChange}
+                value={values.country}
+                name="country"
+                error={!!touched.country && !!errors.country}
+                helperText={touched.country && errors.country}
+                sx={{ gridColumn: "span 1" }}
               />
               <TextField
                 fullWidth
@@ -168,16 +254,16 @@ const VendorForm = () => {
                 }}
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.pin}
-                name="pin"
-                error={!!touched.pin && !!errors.pin}
-                helperText={touched.pin && errors.pin}
+                value={values.pincode}
+                name="pincode"
+                error={!!touched.pincode && !!errors.pincode}
+                helperText={touched.pincode && errors.pincode}
                 sx={{ gridColumn: "span 1" }}
               />
             </Box>
             <Box display="flex" justifyContent="end" mt="20px">
               <Button type="submit" color="secondary" variant="contained">
-                Add New Vendor
+                Add New Customer
               </Button>
             </Box>
           </form>
@@ -193,25 +279,15 @@ const phoneRegExp =
 const pinRegExp = /^(\d{4}|\d{6})$/;
 
 const checkoutSchema = yup.object().shape({
-  name: yup.string().required("required"),
-  email: yup.string().email("Invalid Email").required("required"),
-  phoneNumber: yup
-    .string()
-    .matches(phoneRegExp, "Phone number is not valid")
-    .required("required"),
-  address: yup.string().required("required"),
-  pin: yup
-    .string()
-    .matches(pinRegExp, "Pincode is not valid")
-    .required("required"),
+  customerName: yup.string().required("Required"),
+  email: yup.string().email("Invalid Email"),
+  phoneNumber: yup.string().matches(phoneRegExp, "Phone number is not valid"),
+  address1: yup.string(),
+  address2: yup.string(),
+  city: yup.string(),
+  state: yup.string(),
+  country: yup.string(),
+  pincode: yup.string().matches(pinRegExp, "Pincode is not valid"),
 });
 
-{/*const initialValues = {
-  name: "",
-  email: "",
-  phoneNumber: "",
-  address: "",
-  pin: "",
-};*/}
-
-export default VendorForm;
+export default CustomerForm;

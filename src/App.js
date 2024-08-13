@@ -9,7 +9,6 @@ import Purchase from "./scenes/purchase";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
 import Inventory from "./scenes/inventory";
-import Sales from "./scenes/sales";
 import Tutorial from "./scenes/tutorial";
 import PurchaseOrder from "./scenes/purchase_order";
 import Pending from "./scenes/pending";
@@ -21,6 +20,16 @@ import ProductDetails from "./scenes/productDetails";
 import NewStore from "./scenes/createNewStore";
 import NewProduct from "./scenes/createNewProduct";
 import AllProducts from "./scenes/allProducts";
+import AllInventory from "./scenes/allInventory";
+import TransferStock from "./scenes/transferStock";
+import AllCustomers from "./scenes/allCustomers";
+import CustomerDetails from "./scenes/customerDetails";
+import NewCustomer from "./scenes/createNewCustomer";
+import SalesOrderDetails from "./scenes/salesOrderDetails";
+import AllSales from "./scenes/allSales";
+import NewSalesOrder from "./scenes/createNewSalesOrder";
+import AllStockTransfer from "./scenes/allStockTransfer";
+import StockTransferDetails from "./scenes/stockTransferDetails";
 
 
 function App() {
@@ -48,8 +57,17 @@ function App() {
               <Route path="/product" element={<AllProducts />} />
               <Route path="/productDetails/:id" element={<ProductDetails />} />
               <Route path="/createNewProduct" element={<NewProduct />} />
+              <Route path="/allInventory" element={<AllInventory />} />
+              <Route path="/allStockTransfer" element={<AllStockTransfer />} />
+              <Route path="/transferStock" element={<TransferStock />} />
+              <Route path="/customer" element={<AllCustomers />} />
+              <Route path="/customerDetails/:id" element={<CustomerDetails />} />
+              <Route path="/salesOrderDetails/:id" element={<SalesOrderDetails />} />
+              <Route path="/stockTransferDetails/:id" element={<StockTransferDetails />} />
+              <Route path="/createNewCustomer" element={<NewCustomer />} />
+              <Route path="/createNewSalesOrder" element={<NewSalesOrder />} />
               <Route path="/inventory" element={<Inventory />} />
-              <Route path="/sales" element={<Sales />} />
+              <Route path="/sales" element={<AllSales />} />
               <Route path="/faq" element={<FAQ />} />
               <Route path="/tutorial" element={<Tutorial />} />
             </Routes>

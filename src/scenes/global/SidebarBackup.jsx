@@ -196,18 +196,25 @@ const Sidebar = () => {
             >
             <Item
               title="Transfer Stock"
-              to="/internalOrder"
+              to="/allStockTransfer"
               icon={<PeopleOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
+              title="Snapshot"
+              to="/allInventory"
+              icon={<PeopleOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            {/*<Item
               title="Adjust Stock"
               to="/adjustInventory"
               icon={<PeopleOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
-            />
+            />*/}
             <Item
               display={selected === "Purchase Orders" ? "flex" : "none"} 
               title="Stores"
@@ -244,9 +251,16 @@ const Sidebar = () => {
             selected={selected}
             setSelected={setSelected}
             />
-            <Item
+            {/*<Item
               title="Promotions"
               to="/promotion"
+              icon={<PeopleOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />*/}
+            <Item
+              title="Items"
+              to="/items"
               icon={<PeopleOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}

@@ -1,46 +1,41 @@
 import { Box, useTheme } from "@mui/material";
-import { DataGrid } from "@mui/x-data-grid";
+import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
-import { mockDataStoreDetails } from "../../data/mockData"; // Updated import
+import { mockDataProductList } from "../../data/mockData";
 import { useNavigate } from 'react-router-dom';
 
-const StoreList = () => {
+const ProductList = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const navigate = useNavigate();
 
   const columns = [
-    { field: "storeId", headerName: "Store ID", flex: 0.5 },
+    { field: "productId", headerName: "Product ID", flex: 0.5 },
     {
-      field: "storeName",
-      headerName: "Store Name",
+      field: "productName",
+      headerName: "Product Name",
       flex: 1,
       cellClassName: "name-column--cell",
     },
     {
-      field: "storeStartTime",
-      headerName: "Start Time",
+      field: "productType",
+      headerName: "Product Type",
       flex: 1,
     },
     {
-      field: "storeEndtime",
-      headerName: "End Time",
+      field: "totalInventory",
+      headerName: "Total Inventory",
       flex: 1,
     },
     {
-      field: "timezone",
-      headerName: "Timezone",
+      field: "measurement",
+      headerName: "Measurement",
       flex: 1,
-    },
-    {
-      field: "storeOperationalStatus",
-      headerName: "Operational Status",
-      flex: 1,
-    },
+    }
   ];
 
   const handleRowClick = (params) => {
-    navigate(`/storeDetails/${params.id}`);
+    navigate(`/productDetails/${params.id}`);
   };
 
   return (
@@ -78,8 +73,8 @@ const StoreList = () => {
         }}
       >
         <DataGrid
-          getRowId={(row) => row.storeId}
-          rows={mockDataStoreDetails} // Use mockDataStoreDetails
+          getRowId={(row) => row.productId}
+          rows={mockDataProductList}
           columns={columns}
           onRowClick={handleRowClick}
         />
@@ -88,4 +83,4 @@ const StoreList = () => {
   );
 };
 
-export default StoreList;
+export default ProductList;

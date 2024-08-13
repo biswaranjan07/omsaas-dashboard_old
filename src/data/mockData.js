@@ -1424,7 +1424,7 @@ export const mockDataProduct = [
   },
 ];
 
-export const mockDataVendorProduct = [
+/*export const mockDataVendorProduct = [
   {
     vendorId: 1,
     productId: 3,
@@ -1455,9 +1455,9 @@ export const mockDataVendorProduct = [
     buyPrice: 37,
     unit: "Kg",
   },
-];
+];*/
 
-export const mockDataStoreList = [
+/*export const mockDataStoreList = [
   {
     storeId: 1,
     storeName: "Eastern Warehouse",
@@ -1474,7 +1474,7 @@ export const mockDataStoreList = [
     timezone: "IST",
     storeOperationalStatus: "True",
   },
-];
+];*/
 
 export const mockDataStoreDetails = [
 	{
@@ -1565,7 +1565,7 @@ export const mockDataStoreDetails = [
 	}
 ];
 
-export const mockDataProductList = [
+/*export const mockDataProductList = [
   {
     productId: 1,
     productName: "Small Bananas",
@@ -1580,7 +1580,7 @@ export const mockDataProductList = [
     measurement: "Kg",
     totalInventory: 100
   }
-];
+];*/
 
 export const mockDataProductDetails = [
   {
@@ -1619,6 +1619,246 @@ export const mockDataProductDetails = [
           inventory: 70
         }
         
+      ]
+  }
+];
+
+export const mockDataInventoryDetails = [
+  {
+    productId: 1,
+    storeId: 1,
+    inventory: 40,
+    measurement: "Units",
+  },
+  {
+    productId: 1,
+    storeId: 2,
+    inventory: 20,
+    measurement: "Units",
+  },
+  {
+    productId: 2,
+    storeId: 1,
+    inventory: 30,
+    measurement: "Kg",
+  },
+  {
+    productId: 2,
+    storeId: 2,
+    inventory: 70,
+    measurement: "Kg",
+  },
+];
+
+export const mockDataCustomerDetails = [
+  {
+    customerId: 1,
+    customerName: "Manish Yadav",
+    phoneNumber: "(665)121-5454",
+    email: "manishyadav5@gmail.com",
+    address1: "Keerthi Mansion",
+    address2: "WhiteField Road",
+    city: "Bangalore",
+    state: "Karnataka",
+    country: "India",
+    pincode: "456111",
+    orderDetails:
+      [
+        {
+          orderId: 1,
+        },
+        {
+          orderId: 3,
+        },
+      ]
+  },
+  {
+    customerId: 2,
+    customerName: "Parul Sharma",
+    phoneNumber: "(665)191-5400",
+    email: "",
+    address1: "",
+    address2: "",
+    city: "",
+    state: "",
+    country: "",
+    pincode: "",
+    orderDetails:
+      [
+        {
+          orderId: 2,
+        }
+      ]
+  },
+];
+
+export const mockDataSalesOrderDetails = [
+  {
+    orderId: 4,
+    storeId: 2,
+    customerId: 1,
+    orderDateTime: "2024-03-12 10:12:33",
+    orderTimeZone: "IST",
+    omnichannel: "Walk In",
+    fulfilment: "In-store",
+    carrier: "",
+    carrierService: "",
+    orderLines:
+      [
+        {
+          itemId: 1,
+          purchasedQuantity: 3,
+          measurement: "Units"
+        }
+      ]
+  },
+  {
+    orderId: 5,
+    storeId: 2,
+    customerId: 2,
+    orderDateTime: "2024-03-16 17:12:33",
+    orderTimeZone: "IST",
+    omnichannel: "Walk In",
+    fulfilment: "In-store",
+    carrier: "",
+    carrierService: "",
+    orderLines:
+      [
+        {
+          itemId: 1,
+          purchasedQuantity: 1,
+          measurement: "Units"
+        },
+        {
+          itemId: 2,
+          purchasedQuantity: 1,
+          measurement: "Kg"
+        }
+      ]
+  },
+  {
+    orderId: 6,
+    storeId: 2,
+    customerId: 1,
+    orderDateTime: "2024-03-22 12:55:22",
+    orderTimeZone: "IST",
+    omnichannel: "App",
+    fulfilment: "Ship To Home",
+    carrier: "Owned",
+    carrierService: "Owned",
+    orderLines:
+      [
+        {
+          itemId: 2,
+          purchasedQuantity: 5,
+          measurement: "Kg"
+        }
+      ]
+  }
+];
+
+export const measurements = ["Units", "Dozen", "Kg", "g", "Pound (lb)"];
+export const omnichannel = ["Walk In", "App", "Web", "Amazon","Swiggy","Flipkart","Zomato","Meesho","Others"];
+export const fulfilment = ["In-store","Ship To Home","Order Pick Up","Drive Up","Others"];
+export const carrier = ["Owned","Others"];
+export const carrierservice = ["Owned","Others"];
+export const transferType = ["Salvage","Internal"];
+
+export const mockDataStockTransfer = [
+  {
+    orderId: 1,
+    orderType: "Salvage",
+    origin:
+      {
+        storeId: 1,
+        storeName: "Eastern Warehouse"
+      },
+    destination:
+      {
+        storeId: 6666,
+        storeName: "Others"
+      },
+    orderDateTime: "2024-03-04 10:12:33",
+    orderTimeZone: "IST",
+    orderDetails:
+      {
+        carrier: "Others",
+        carrierService: "Others",
+        currency: "Rs",
+        buyPrice: 50,
+        sellPrice: 0
+      },
+    orderLines:
+      [
+        {
+          productId: 1,
+          purchasedQuantity: 10,
+          measurement: "Units"
+        }
+      ]
+  },
+  {
+    orderId: 2,
+    orderType: "Internal",
+    origin:
+      {
+        storeId: 1,
+        storeName: "Eastern Warehouse"
+      },
+    destination:
+      {
+        storeId: 2,
+        storeName: "MJ Road Store"
+      },
+    orderDateTime: "2024-03-05 10:12:33",
+    orderTimeZone: "IST",
+    orderDetails:
+      {
+        carrier: "Owned",
+        carrierService: "Owned",
+        currency: "Rs",
+        buyPrice: 50,
+        sellPrice: 50,
+      },
+    orderLines:
+      [
+        {
+          productId: 1,
+          purchasedQuantity: 24,
+          measurement: "Units"
+        }
+      ]
+  },
+  {
+    orderId: 3,
+    orderType: "Internal",
+    origin:
+      {
+        storeId: 1,
+        storeName: "Eastern Warehouse"
+      },
+    destination:
+      {
+        storeId: 2,
+        storeName: "MJ Road Store"
+      },
+    orderDateTime: "2024-03-05 17:12:33",
+    orderTimeZone: "IST",
+    orderDetails:
+      {
+        carrier: "Owned",
+        carrierService: "Owned",
+        currency: "Rs",
+        buyPrice: 50,
+        sellPrice: 50,
+      },
+    orderLines:
+      [
+        {
+          productId: 2,
+          purchasedQuantity: 76,
+          measurement: "Units"
+        }
       ]
   }
 ];
