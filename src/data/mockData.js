@@ -1862,3 +1862,58 @@ export const mockDataStockTransfer = [
       ]
   }
 ];
+
+export const mockDataItemDetails = [
+  {
+    itemId: 1,
+    itemName: "Small Bananas",
+    measurement: "Units",
+    component:
+      [
+        {
+          productId: 1,
+          requiredQuantity: 1,
+          measurement: "Units"
+        }
+      ],
+    price:
+      {
+        currency: "Rs",
+        unitSellPrice: 100
+      },
+    availability:
+      [
+        {
+          storeId: 1,
+          availableToPurchase: 20,
+          threshold: 0
+        }
+      ]
+  },
+  {
+    itemId: 2,
+    itemName: "Mangoes",
+    measurement: "Kg",
+    component:
+      [
+        {
+          productId: 2,
+          requiredQuantity: 1,
+          measurement: "Kg"
+        }
+      ],
+    price:
+      {
+        currency: "Rs",
+        unitSellPrice: 100
+      },
+    availability:
+      [
+        {
+          storeId: 1,
+          availableToPurchase: 70,
+          threshold: 0
+        }
+      ]
+  }
+];

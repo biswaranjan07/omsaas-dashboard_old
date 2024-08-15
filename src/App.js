@@ -27,10 +27,10 @@ import CustomerDetails from "./scenes/customerDetails";
 import NewCustomer from "./scenes/createNewCustomer";
 import Documentation from "./scenes/document";
 import Document from "./scenes/document";
-import UserManagementGuide from "./scenes/document/userManagement/userManagementGuide";
+import UserManagementGuide from "./scenes/document/userManagement/UserManagementGuide";
 import UserManagementAdding from "./scenes/document/userManagement/UserManagementAdding";
 import UserManagementViewing from "./scenes/document/userManagement/UserManagementViewing";
-import UserManagementRolesPermissions from "./scenes/document/userManagement/userManagementRolesPermissions";
+import UserManagementRolesPermissions from "./scenes/document/userManagement/UserManagementRolesPermissions";
 import UserManagementPermissions from "./scenes/document/userManagement/UserManagementPermissions";
 import UserManagementPasswordReset from "./scenes/document/userManagement/UserManagementPasswordReset";
 import SalesOrderDetails from "./scenes/salesOrderDetails";
@@ -38,6 +38,7 @@ import AllSales from "./scenes/allSales";
 import NewSalesOrder from "./scenes/createNewSalesOrder";
 import AllStockTransfer from "./scenes/allStockTransfer";
 import StockTransferDetails from "./scenes/stockTransferDetails";
+import AllItems from "./scenes/allItems";
 
 
 function App() {
@@ -76,6 +77,7 @@ function App() {
               <Route path="/createNewSalesOrder" element={<NewSalesOrder />} />
               <Route path="/inventory" element={<Inventory />} />
               <Route path="/sales" element={<AllSales />} />
+              <Route path="/items" element={<AllItems />} />
               <Route path="/faq" element={<FAQ />} />
               <Route path="/tutorial" element={<Tutorial />} />
               <Route path="/document" element={<Document />} />
