@@ -25,6 +25,14 @@ import TransferStock from "./scenes/transferStock";
 import AllCustomers from "./scenes/allCustomers";
 import CustomerDetails from "./scenes/customerDetails";
 import NewCustomer from "./scenes/createNewCustomer";
+import Documentation from "./scenes/document";
+import Document from "./scenes/document";
+import UserManagementGuide from "./scenes/document/userManagement/userManagementGuide";
+import UserManagementAdding from "./scenes/document/userManagement/UserManagementAdding";
+import UserManagementViewing from "./scenes/document/userManagement/UserManagementViewing";
+import UserManagementRolesPermissions from "./scenes/document/userManagement/userManagementRolesPermissions";
+import UserManagementPermissions from "./scenes/document/userManagement/UserManagementPermissions";
+import UserManagementPasswordReset from "./scenes/document/userManagement/UserManagementPasswordReset";
 import SalesOrderDetails from "./scenes/salesOrderDetails";
 import AllSales from "./scenes/allSales";
 import NewSalesOrder from "./scenes/createNewSalesOrder";
@@ -70,6 +78,14 @@ function App() {
               <Route path="/sales" element={<AllSales />} />
               <Route path="/faq" element={<FAQ />} />
               <Route path="/tutorial" element={<Tutorial />} />
+              <Route path="/document" element={<Document />} />
+              <Route path="/document/user-management" element={<UserManagementGuide />} /> 
+              <Route path="/document/user-management-adding" element={<UserManagementAdding />} />
+              <Route path="/document/user-management-viewing" element={<UserManagementViewing />} />
+              <Route path="/document/user-management-roles-permissions" element={<UserManagementRolesPermissions />} />
+              <Route path="/document/user-management-permissions" element={<UserManagementPermissions />} />
+              <Route path="/document/user-management-password-reset" element={<UserManagementPasswordReset />} />
+       
             </Routes>
           </main>
         </div>

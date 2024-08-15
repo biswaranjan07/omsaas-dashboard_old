@@ -126,7 +126,7 @@ const Sidebar = () => {
                   fontWeight="bold"
                   sx={{ m: "10px 0 0 0" }}
                 >
-                  OmSaaS Inc.
+                  OmSaaS Inc. 
                 </Typography>
                 <Typography variant="h5" color={colors.greenAccent[500]}>
                   Order management system
@@ -318,13 +318,6 @@ const Sidebar = () => {
               setSelected={setSelected}
             />
             </SubMenu>
-            <Typography
-              variant="h6"
-              color={colors.grey[300]}
-              sx={{ m: "15px 0 5px 20px" }}
-            >
-              SitePages
-            </Typography>
             <Item
               title="FAQ"
               to="/faq"
