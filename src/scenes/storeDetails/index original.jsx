@@ -142,7 +142,7 @@ const StoreDetails = () => {
 
   return (
     <Box m="20px">
-      <Header title={`${store.storeName} Details`} />
+      <Header subtitle={`${store.storeName} Details`} />
       <Header subtitle={`Store ID: ${store.storeId}`} />
       {/*<Typography variant="h4" gutterBottom>
         {store.storeName} Details
@@ -554,10 +554,7 @@ const StoreDetails = () => {
               <Button variant="contained" color="secondary" type="submit">
                 Save
               </Button>
-              {/*<Button variant="contained" color="secondary" onClick={handleDelete}>
-                Delete
-              </Button>*/}
-              <Button variant="contained" color="error" onClick={handleDelete}>
+              <Button variant="contained" color="secondary" onClick={handleDelete}>
                 Delete
               </Button>
             </Box>

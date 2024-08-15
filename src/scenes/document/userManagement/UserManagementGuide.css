@@ -1,0 +1,87 @@
+.user-guide {
+  padding: 20px;
+  background-color: inherit; /* Inherit background color from parent */
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+  color: inherit; /* Inherit text color from parent */
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 20px; /* Space between button and content */
+}
+
+.back-button svg {
+  margin-right: 8px;
+}
+
+.back-button:hover {
+  color: #007bff; /* Change color on hover */
+}
+
+.user-guide h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.user-guide h2 {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.user-guide ol {
+  counter-reset: item;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.user-guide ol > li {
+  display: block;
+  position: relative;
+  margin-bottom: 20px;
+  padding-left: 30px; /* Adjusted for better alignment */
+  list-style: none; /* Remove default numbering */
+}
+
+.user-guide ol > li:before {
+  content: counters(item, ".") " "; /* Custom numbering */
+  counter-increment: item;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+  color: #333; /* Custom color for numbering */
+  font-size: 20px; /* Increase size for numbering */
+}
+
+.user-guide ul {
+  margin-left: 0;
+  padding-left: 30px; /* Adjusted for better alignment */
+  list-style: none; /* Remove default bullets */
+}
+
+.user-guide ul > li {
+  display: block;
+  position: relative;
+  margin-bottom: 10px;
+  padding-left: 20px; /* Adjusted for better alignment */
+}
+
+.user-guide ul > li:before {
+  content: "•"; /* Custom bullet */
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+  font-size: 18px;
+  color: #333; /* Custom color for bullets */
+}
+
+.user-guide ul ul > li:before {
+  content: "◦"; /* Sub-bullet for nested lists */
+  color: #666; /* Custom color for sub-bullets */
+}

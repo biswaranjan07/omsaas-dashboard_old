@@ -3,17 +3,17 @@ import Header from "../../components/Header";
 import { tokens } from "../../theme";
 import AddIcon from "@mui/icons-material/Add";
 import { Link } from "react-router-dom";
-import StoreList from "../../components/stores/StoreList";
+import SalesList from "../../components/sales/SalesList";
 
-const AllStores = () => {
+const AllSales = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   return (
     <Box m="20px">
       <Box display="flex" justifyContent="space-between" alignItems="center">
-        <Header title="Inventory" subtitle="Store Details" />
+        <Header title="Sales" subtitle="Sales Details" />
         <Box>
-          <Link underline="none" to={"/createNewStore"}>
+          <Link underline="none" to={"/createNewSalesOrder"}>
             <Button
               sx={{
                 ":hover": {
@@ -28,14 +28,14 @@ const AllStores = () => {
               }}
             >
               <AddIcon sx={{ mr: "10px" }} />
-              Create new Store
+              Create new Sales Order
             </Button>
           </Link>
         </Box>
       </Box>
-      <StoreList />
+      <SalesList />
     </Box>
   );
 };
 
-export default AllStores;
+export default AllSales;

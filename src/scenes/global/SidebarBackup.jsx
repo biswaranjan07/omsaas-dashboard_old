@@ -126,7 +126,7 @@ const Sidebar = () => {
                   fontWeight="bold"
                   sx={{ m: "10px 0 0 0" }}
                 >
-                  OmSaaS Inc.
+                  OmSaaS Inc. 
                 </Typography>
                 <Typography variant="h5" color={colors.greenAccent[500]}>
                   Order management system
@@ -196,18 +196,25 @@ const Sidebar = () => {
             >
             <Item
               title="Transfer Stock"
-              to="/internalOrder"
+              to="/allStockTransfer"
               icon={<PeopleOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
+              title="Snapshot"
+              to="/allInventory"
+              icon={<PeopleOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            {/*<Item
               title="Adjust Stock"
               to="/adjustInventory"
               icon={<PeopleOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
-            />
+            />*/}
             <Item
               display={selected === "Purchase Orders" ? "flex" : "none"} 
               title="Stores"
@@ -244,9 +251,16 @@ const Sidebar = () => {
             selected={selected}
             setSelected={setSelected}
             />
-            <Item
+            {/*<Item
               title="Promotions"
               to="/promotion"
+              icon={<PeopleOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />*/}
+            <Item
+              title="Items"
+              to="/items"
               icon={<PeopleOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
@@ -304,13 +318,6 @@ const Sidebar = () => {
               setSelected={setSelected}
             />
             </SubMenu>
-            <Typography
-              variant="h6"
-              color={colors.grey[300]}
-              sx={{ m: "15px 0 5px 20px" }}
-            >
-              SitePages
-            </Typography>
             <Item
               title="FAQ"
               to="/faq"

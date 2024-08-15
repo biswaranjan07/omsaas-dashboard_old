@@ -1,7 +1,7 @@
 import { Box, useTheme } from "@mui/material";
-import { DataGrid } from "@mui/x-data-grid";
+import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
-import { mockDataStoreDetails } from "../../data/mockData"; // Updated import
+import { mockDataStoreList } from "../../data/mockData";
 import { useNavigate } from 'react-router-dom';
 
 const StoreList = () => {
@@ -23,7 +23,7 @@ const StoreList = () => {
       flex: 1,
     },
     {
-      field: "storeEndtime",
+      field: "storeEndTime",
       headerName: "End Time",
       flex: 1,
     },
@@ -79,7 +79,7 @@ const StoreList = () => {
       >
         <DataGrid
           getRowId={(row) => row.storeId}
-          rows={mockDataStoreDetails} // Use mockDataStoreDetails
+          rows={mockDataStoreList}
           columns={columns}
           onRowClick={handleRowClick}
         />
